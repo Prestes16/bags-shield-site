@@ -1,98 +1,77 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-
 import '../css/bs-landing.css';
 
-export default function Home(): JSX.Element {
-  const phoneMock = useBaseUrl('img/phone-mock.png');
+export default function Home() {
+  const { siteConfig } = useDocusaurusContext();
 
-  const solana = useBaseUrl('img/partners/solana.svg');
-  const jupiter = useBaseUrl('img/partners/jupiter.svg');
-  const helius = useBaseUrl('img/partners/helius.svg');
+  const phoneMock = useBaseUrl('img/phone-mock.png');
+  const solanaIcon = useBaseUrl('img/partners/solana.svg');
+  const jupiterIcon = useBaseUrl('img/partners/jupiter.svg');
+  const heliusIcon = useBaseUrl('img/partners/helius.svg');
+  const appUrl = siteConfig.customFields?.appUrl || 'https://app.bagsshield.org';
 
   return (
-    <Layout
-      title="Bags Shield"
-      description="Real-time risk analysis, secure swaps, and advanced analytics for the Solana ecosystem."
-    >
-      <main className="bs-landing">
-        <section className="bs-hero">
-          <div className="bs-container bs-hero-grid">
-            <div>
-              <div className="status-pill">
-                <span className="status-dot" />
-                API OFFLINE
-              </div>
+    <Layout title="Home" description="Solana Intelligence Layer">
+      <div className="bs-landing">
+        <div className="bs-hero">
+          <div className="bs-container">
+            <div className="bs-hero-grid">
 
-              <h1 className="hero-title">
-                Bags Shield: The <span className="txt-gradient">Ultimate Solana</span> Intelligence Layer.
-              </h1>
+              <div className="hero-left">
+                <div className="status-pill">
+                  <span className="status-dot"></span>
+                  <span>All Systems Operational</span>
+                </div>
 
-              <p className="hero-desc">
-                Real-time risk analysis, secure swaps, and advanced analytics for the Solana ecosystem.
-              </p>
+                <h1 className="hero-title">
+                  The Intelligence Layer <br/>
+                  <span className="txt-gradient">for Solana DeFi.</span>
+                </h1>
 
-              <div className="hero-cta-group">
-                <a className="btn-primary" href="#" rel="noreferrer">
-                  Launch Web App
-                </a>
-                <Link className="btn-secondary" to="/docs/api/overview">
-                  Docs
-                </Link>
-              </div>
+                <p className="hero-desc">
+                  Real-time risk analysis, secure swaps, and deep analytics.
+                  Institutional-grade security infrastructure for every trader.
+                </p>
 
-              <div className="partners-section">
-                <div className="partners-label">Ecosystem Partners</div>
-                <div className="partners-grid">
-                  <a href="https://solana.com" target="_blank" rel="noreferrer">
-                    <img src={solana} alt="Solana" loading="lazy" />
-                    <span>Solana</span>
-                  </a>
-                  <a href="https://jup.ag" target="_blank" rel="noreferrer">
-                    <img src={jupiter} alt="Jupiter" loading="lazy" />
-                    <span>Jupiter</span>
-                  </a>
-                  <a href="https://helius.dev" target="_blank" rel="noreferrer">
-                    <img src={helius} alt="Helius" loading="lazy" />
-                    <span>Helius</span>
-                  </a>
+                <div className="hero-cta-group">
+                  <Link to={appUrl} className="btn-primary">
+                    Launch App
+                  </Link>
+                  <Link to="/docs/api/overview" className="btn-secondary">
+                    Documentation
+                  </Link>
+                </div>
+
+                <div className="partners-section">
+                  <div className="partners-label">TRUSTED BY BUILDERS</div>
+                  <div className="partners-grid">
+                    <a href="https://solana.com" target="_blank" rel="noreferrer">
+                      <img src={solanaIcon} alt="Solana" /> <span>Solana</span>
+                    </a>
+                    <a href="https://jup.ag" target="_blank" rel="noreferrer">
+                      <img src={jupiterIcon} alt="Jupiter" /> <span>Jupiter</span>
+                    </a>
+                    <a href="https://helius.dev" target="_blank" rel="noreferrer">
+                      <img src={heliusIcon} alt="Helius" /> <span>Helius</span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="mock-col">
-              <div className="mock-wrap">
-                <img className="mock-img" src={phoneMock} alt="Bags Shield app mock" loading="eager" />
+              <div className="mock-col">
+                <div className="phone-wrap">
+                  <img className="phone-mock" src={phoneMock} alt="Bags Shield App Mock" loading="eager" />
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="bs-section">
-          <div className="bs-container">
-            <div className="grid-3">
-              <div className="glass">
-                <h3>Scan Risk</h3>
-                <p>Instant contract analysis detecting rugpulls, honeypots, and mutable metadata.</p>
-              </div>
-              <div className="glass">
-                <h3>Secure Analytics</h3>
-                <p>Deep dive into holder distribution and liquidity signals with clear risk explanations.</p>
-              </div>
-              <div className="glass">
-                <h3>Swift Swaps</h3>
-                <p>Integrated routing (Jupiter) for the best prices with safety checks before execution.</p>
-              </div>
             </div>
           </div>
-        </section>
-
-        <footer className="bs-footer">
-          © 2026 Bags Shield. Built for Solana.
-        </footer>
-      </main>
+        </div>
+      </div>
     </Layout>
   );
 }
