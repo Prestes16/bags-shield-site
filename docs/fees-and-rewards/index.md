@@ -1,11 +1,10 @@
-﻿---
+---
 title: Fees & Rewards
-sidebar_position: 1
+slug: /fees-and-rewards
 ---
 
-How the economics of Bags Shield work (transparent and non-custodial).
+How fees are computed and shared.
 
-Start here:
-- [Overview](./overview)
-- [Partner Fees](./partner-fees)
-- [Cashback](./cashback)
+- [Overview](./fees-and-rewards/overview)
+- [Partner Fees](./fees-and-rewards/partner-fees)
+- [Cashback](./fees-and-rewards/cashback)

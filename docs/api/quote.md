@@ -1,5 +1,5 @@
-# Quote API
+---
+title: Quote
+---
 
-Get swap quotes with fee information.
-
-See [Swap API](/docs/api/swap) for details.
+Quote endpoints are documented here. **Stub page**: params, examples, and edge cases will be added.

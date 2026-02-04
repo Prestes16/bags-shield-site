@@ -1,11 +1,10 @@
-﻿---
+---
 title: Security
-sidebar_position: 1
+slug: /security
 ---
 
-Bags Shield is built with a risk-first mindset.
+Security posture and best practices.
 
-Start here:
-- [Overview](./overview)
-- [Audits](./audits)
-- [Best Practices](./best-practices)
+- [Overview](./security/overview)
+- [Audits](./security/audits)
+- [Best Practices](./security/best-practices)

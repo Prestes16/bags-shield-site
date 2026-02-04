@@ -1,12 +1,11 @@
-﻿---
+---
 title: API
-sidebar_position: 1
+slug: /api
 ---
 
-Welcome to the Bags Shield API docs.
+Quick entrypoint for the API section.
 
-Start here:
-- [Overview](./overview)
-- [Quote](./quote)
-- [Swap](./swap)
-- [Authentication](./authentication)
+- [Overview](./api/overview)
+- [Authentication](./api/authentication)
+- [Quote](./api/quote)
+- [Swap](./api/swap)
