@@ -1,66 +1,54 @@
-// @ts-check
-const prism = require('prism-react-renderer');
-const lightCodeTheme = prism.themes.github;
-const darkCodeTheme = prism.themes.dracula;
+﻿// @ts-check
+const lightCodeTheme = require('prism-react-renderer/themes/github');
+const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Bags Shield',
   tagline: 'Solana Intelligence Layer',
-  // URL DE PRODUÃ‡ÃƒO CORRETA (Cloudflare Pages)
+  favicon: 'img/favicon.ico',
   url: 'https://bags-shield.pages.dev',
   baseUrl: '/',
-
-  // Evita quebra de build por links mortos temporÃ¡rios
-  onBrokenLinks: 'warn',
-  markdown: {
-    hooks: {
-      onBrokenMarkdownLinks: 'warn',
-    },
-  },
-
-  favicon: 'img/favicon.ico',
+  organizationName: 'Prestes16',
+  projectName: 'bags-shield-site',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
   i18n: { defaultLocale: 'en', locales: ['en'] },
-
-  customFields: {
-    appUrl: 'https://app.bagsshield.org',
-    apiHealthUrl: 'https://bags-shield-api.vercel.app/api/health',
-  },
 
   presets: [
     [
       'classic',
-      {
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // "Edit this page" aponta para o GitHub; ediÃ§Ãµes lÃ¡ + novo deploy atualizam o site
-          editUrl: 'https://github.com/Prestes16/bags-shield-site/edit/baseline/mock-working/',
-          routeBasePath: 'docs',
+          // APONTA PARA O REPO CORRETO AGORA:
+          editUrl: 'https://github.com/Prestes16/bags-shield-site/tree/main/',
         },
-        blog: false,
-        theme: { customCss: require.resolve('./src/css/custom.css') },
-      },
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
     ],
   ],
 
-  themeConfig: {
-    colorMode: { defaultMode: 'dark', disableSwitch: true, respectPrefersColorScheme: false },
-    navbar: {
-      title: 'Bags Shield',
-      logo: { alt: 'Bags Shield Logo', src: 'img/logo.svg' },
-      items: [
-        { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Docs' },
-        { to: 'https://app.bagsshield.org', label: 'Launch App', position: 'right', className: 'navbar-cta' },
-        { href: 'https://github.com/Prestes16/bags-shield-site', label: 'GitHub', position: 'right' },
-      ],
-    },
-    footer: {
-      style: 'dark',
-      // Sintaxe segura para evitar erro de encoding no Windows
-      copyright: 'Copyright Â© ' + new Date().getFullYear() + ' Bags Shield. Built for Solana.',
-    },
-    prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
-  },
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      colorMode: { defaultMode: 'dark', disableSwitch: true },
+      image: 'img/docusaurus-social-card.jpg',
+      navbar: {
+        title: 'Bags Shield',
+        logo: { alt: 'Bags Shield Logo', src: 'img/logo.svg' }, // Certifique-se que o logo existe ou use um padrão
+        items: [
+          { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
+          { href: 'https://app.bagsshield.org', label: 'Launch App', position: 'right', className: 'button button--primary' },
+          { href: 'https://github.com/Prestes16/bags-shield-api', label: 'GitHub', position: 'right' },
+        ],
+      },
+      footer: { style: 'dark', copyright: `Copyright © ${new Date().getFullYear()} Bags Shield. Built for Solana.` },
+      prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
+    }),
 };
 
 module.exports = config;
