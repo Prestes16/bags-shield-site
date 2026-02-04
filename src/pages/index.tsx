@@ -5,7 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import '../css/bs-landing.css';
 
-// Ícones de Features
+// Ãcones de Features
 const FeatIcons = {
   Shield: () => <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
   Chart: () => <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>,
@@ -16,10 +16,10 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   
   // Assets
-  const phoneMock = useBaseUrl('/img/phone-mock.png');
-  const solanaIcon = useBaseUrl('/img/solana.svg');
-  const jupiterIcon = useBaseUrl('/img/jupiter.svg');
-  const heliusIcon = useBaseUrl('/img/helius.svg');
+  const phoneMock = useBaseUrl('img/phone-mock.png');
+  const solanaIcon = useBaseUrl('img/partners/solana.svg');
+  const jupiterIcon = useBaseUrl('img/partners/jupiter.svg');
+  const heliusIcon = useBaseUrl('img/partners/helius.svg');
 
   return (
     <Layout title="Home" description="Solana Intelligence Layer">
@@ -108,13 +108,13 @@ export default function Home() {
                   <p>
                     While Jupiter acts as the powerhouse engine finding the best routes, 
                     Bags Shield operates as the <strong>Intelligence Layer</strong>. 
-                    We run deep pre-swap scans, calculate real-time ShieldScores™, 
+                    We run deep pre-swap scans, calculate real-time ShieldScoresâ„¢, 
                     and apply strict guardrails to filter out traps.
                   </p>
                   <ul className="deep-list">
-                    <li><strong>🛡️ Sustainable Fees:</strong> Small, transparent fees keeping infrastructure robust.</li>
-                    <li><strong>💸 User Cashback:</strong> Users earn rebates just for using the secure route.</li>
-                    <li><strong>🤝 Partner Rewards:</strong> Integrators earn revenue share for directing traffic.</li>
+                    <li><strong>ðŸ›¡ï¸ Sustainable Fees:</strong> Small, transparent fees keeping infrastructure robust.</li>
+                    <li><strong>ðŸ’¸ User Cashback:</strong> Users earn rebates just for using the secure route.</li>
+                    <li><strong>ðŸ¤ Partner Rewards:</strong> Integrators earn revenue share for directing traffic.</li>
                   </ul>
                 </div>
               </div>
@@ -128,11 +128,11 @@ export default function Home() {
                 <div className="deep-body">
                   <p>
                     Most scanners just dump data. We transform risk into binary decisions. 
-                    <strong>Scan → Explain → Secure Action</strong>. No guessing games.
+                    <strong>Scan â†’ Explain â†’ Secure Action</strong>. No guessing games.
                   </p>
                   <ul className="deep-list">
                     <li><strong>Pre-Action Trust Layer:</strong> Risk analysis before you sign.</li>
-                    <li><strong>ShieldScore™:</strong> Frozen A-F grading system for immediate clarity.</li>
+                    <li><strong>ShieldScoreâ„¢:</strong> Frozen A-F grading system for immediate clarity.</li>
                     <li><strong>True Explainability:</strong> We tell you <em>why</em> (Mint Auth, Mutability, Liquidity).</li>
                   </ul>
                 </div>
@@ -163,7 +163,7 @@ export default function Home() {
 
         <footer className="bs-footer">
           <div className="bs-container">
-            <p>© {new Date().getFullYear()} Bags Shield. Built for the Solana Ecosystem.</p>
+            <p>Â© {new Date().getFullYear()} Bags Shield. Built for the Solana Ecosystem.</p>
           </div>
         </footer>
 
