@@ -1,4 +1,4 @@
-﻿// @ts-check
+// @ts-check
 // CORREÇÃO: Nova forma de importar temas no Docusaurus v3
 const {themes} = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
@@ -42,7 +42,7 @@ const config = {
         title: 'Bags Shield',
         logo: { alt: 'Bags Shield Logo', src: 'img/logo.svg' },
         items: [
-          { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Docs' },
+          { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Docs' },
           { href: 'https://app.bagsshield.org', label: 'Launch App', position: 'right', className: 'button button--primary' },
           { href: 'https://github.com/Prestes16/bags-shield-api', label: 'GitHub', position: 'right' },
         ],
