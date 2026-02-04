@@ -19,7 +19,7 @@ export default function Home(): JSX.Element {
     >
       <main className="bs-landing">
         <section className="bs-hero">
-          <div className="bs-container hero-grid">
+          <div className="bs-container bs-hero-grid">
             <div>
               <div className="status-pill">
                 <span className="status-dot" />
@@ -34,7 +34,7 @@ export default function Home(): JSX.Element {
                 Real-time risk analysis, secure swaps, and advanced analytics for the Solana ecosystem.
               </p>
 
-              <div className="hero-cta">
+              <div className="hero-cta-group">
                 <a className="btn-primary" href="#" rel="noreferrer">
                   Launch Web App
                 </a>
@@ -43,16 +43,27 @@ export default function Home(): JSX.Element {
                 </Link>
               </div>
 
-              <div className="partners">
-                <span className="label">Ecosystem Partners</span>
-                <img src={solana} alt="Solana" loading="lazy" />
-                <img src={jupiter} alt="Jupiter" loading="lazy" />
-                <img src={helius} alt="Helius" loading="lazy" />
+              <div className="partners-section">
+                <div className="partners-label">Ecosystem Partners</div>
+                <div className="partners-grid">
+                  <a href="https://solana.com" target="_blank" rel="noreferrer">
+                    <img src={solana} alt="Solana" loading="lazy" />
+                    <span>Solana</span>
+                  </a>
+                  <a href="https://jup.ag" target="_blank" rel="noreferrer">
+                    <img src={jupiter} alt="Jupiter" loading="lazy" />
+                    <span>Jupiter</span>
+                  </a>
+                  <a href="https://helius.dev" target="_blank" rel="noreferrer">
+                    <img src={helius} alt="Helius" loading="lazy" />
+                    <span>Helius</span>
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div className="hero-art">
-              <img className="phone-mock" src={phoneMock} alt="Bags Shield App mock" loading="eager" />
+            <div className="bs-mock">
+              <img src={phoneMock} alt="Bags Shield App mock" loading="eager" />
             </div>
           </div>
         </section>
