@@ -135,3 +135,58 @@ html, body, [data-theme='light'], [data-theme='dark'] {
   opacity: 0.85;       /* antes tava muito baixo */
   filter: none !important; /* mata blur/grayscale que estraga */
 }
+
+/* ===== V16: HERO + PARTNERS hard-fix (anti-corte/anti-sobreposição) ===== */
+
+/* Hero não pode clipar a mock */
+.heroBanner,
+.heroBanner .container,
+.heroBanner .row,
+.heroBanner .col {
+  overflow: visible !important;
+}
+
+/* Dá espaço real pro mock não invadir a seção de baixo */
+.heroBanner {
+  padding-bottom: 10rem !important;
+}
+
+/* Mock do telefone: responsivo e dentro do fluxo */
+.heroBanner img[src*="phone-mock"] {
+  display: block;
+  width: min(560px, 100%);
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Desktop: força layout 2 colunas sem gambiarra de absolute */
+@media (min-width: 997px) {
+  .heroBanner .row {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    align-items: center;
+  }
+}
+
+/* Partners: alinhar e impedir "opacidade fantasma" */
+.partners-section {
+  padding-top: 3.5rem;
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  align-items: center;
+}
+
+.partners-grid img {
+  height: 22px;
+  width: auto;
+  display: block;
+  opacity: 0.9 !important;
+  filter: none !important;
+}
