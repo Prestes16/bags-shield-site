@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -14,10 +14,10 @@ const FeatIcons = {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  const phoneMock = useBaseUrl('/img/phone-mock.png');
-  const solanaIcon = useBaseUrl('/img/solana.svg');
-  const jupiterIcon = useBaseUrl('/img/jupiter.svg');
-  const heliusIcon = useBaseUrl('/img/helius.svg');
+  const phoneMock = useBaseUrl('img/phone-mock.png');
+  const solanaIcon = useBaseUrl('img/partners/solana.svg');
+  const jupiterIcon = useBaseUrl('img/partners/jupiter.svg');
+  const heliusIcon = useBaseUrl('img/partners/helius.svg');
 
   return (
     <Layout title="Home" description="Solana Intelligence Layer">
