@@ -5,6 +5,13 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import '../css/bs-landing.css';
 
+// Ícones de Features (Inline SVG)
+const FeatIcons = {
+  Shield: () => <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+  Chart: () => <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>,
+  Zap: () => <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+};
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
 
@@ -18,11 +25,12 @@ export default function Home() {
   return (
     <Layout title="Home" description="Solana Intelligence Layer">
       <div className="bs-landing">
+
+        {/* HERO SECTION */}
         <div className="bs-hero">
           <div className="bs-container">
             <div className="bs-hero-grid">
 
-              {/* TEXTO */}
               <div className="hero-left">
                 <div className="status-pill">
                   <span className="status-dot"></span>
@@ -64,7 +72,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* MOCKUP (alinhado à direita no CSS) */}
               <div className="mock-col">
                 <div className="phone-wrap">
                   <img className="phone-mock" src={phoneMock} alt="Bags Shield App Mock" loading="eager" />
@@ -74,6 +81,41 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* SEÇÃO FEATURES */}
+        <section className="bs-features">
+          <div className="bs-container">
+            <div className="feat-grid">
+
+              <div className="feat-card">
+                <div className="feat-icon"><FeatIcons.Shield /></div>
+                <h3>Scan Risk</h3>
+                <p>Instant contract analysis detecting rugpulls, honeypots, and mutable metadata.</p>
+              </div>
+
+              <div className="feat-card">
+                <div className="feat-icon"><FeatIcons.Chart /></div>
+                <h3>Secure Analytics</h3>
+                <p>Deep dive into holder distribution and liquidity signals with clear risk explanations.</p>
+              </div>
+
+              <div className="feat-card">
+                <div className="feat-icon"><FeatIcons.Zap /></div>
+                <h3>Swift Swaps</h3>
+                <p>Integrated routing (Jupiter) for the best prices with safety checks before execution.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer className="bs-footer">
+          <div className="bs-container">
+            <p>© {new Date().getFullYear()} Bags Shield. Built for the Solana Ecosystem.</p>
+          </div>
+        </footer>
+
       </div>
     </Layout>
   );
