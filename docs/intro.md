@@ -1,28 +1,23 @@
-﻿---
-id: intro
-title: Introduction
+---
 sidebar_position: 1
+slug: /intro
 ---
 
-# Bags Shield Docs
+# Introduction
 
-Welcome to **Bags Shield** — a security-first intelligence layer for the Solana ecosystem.
+Welcome to the **Bags Shield** documentation. Bags Shield is the ultimate intelligence layer for the Solana ecosystem, providing real-time risk analysis and secure swap routing.
 
-## Start here
+## Why Bags Shield?
 
-- **API Overview** → [/docs/api/overview](/docs/api/overview)
-- **Authentication** → [/docs/api/authentication](/docs/api/authentication)
+- **Real-time Risk Scanning:** Detect rugpulls, honeypots, and malicious mint authorities instantly.
+- **Secure Routing:** Integrated with Jupiter Aggregator to ensure the best price with added safety checks.
+- **Deep Analytics:** Visualize holder distribution and liquidity lock status.
 
-## Security
+## Getting Started
 
-- **Security Overview** → [/docs/security/overview](/docs/security/overview)
-- **Best Practices** → [/docs/security/best-practices](/docs/security/best-practices)
+Check out our [API Overview](/docs/api/overview) to start integrating Shield into your dApp.
 
-## Fees & Rewards
-
-- **Overview** → [/docs/fees-and-rewards/overview](/docs/fees-and-rewards/overview)
-
-## Legal
-
-- **Terms** → [/docs/legal/terms](/docs/legal/terms)
-- **Privacy** → [/docs/legal/privacy](/docs/legal/privacy)
+```bash
+# Example API Call
+curl -X GET "https://api.bagsshield.org/v1/scan/token/So111..."
+```

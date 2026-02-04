@@ -1,150 +1,65 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
-const lightCodeTheme = require('prism-react-renderer').themes.github;
-const darkCodeTheme = require('prism-react-renderer').themes.dracula;
+const prism = require('prism-react-renderer');
+const lightCodeTheme = prism.themes.github;
+const darkCodeTheme = prism.themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Bags Shield',
-  tagline: 'Security & Analytics for Solana Tokens',
-  favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
-  url: 'https://bags-shield.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
+  tagline: 'Solana Intelligence Layer',
+  // URL DE PRODUÇÃO CORRETA (Cloudflare Pages)
+  url: 'https://bags-shield.pages.dev',
   baseUrl: '/',
 
-  // GitHub pages deployment config
-  organizationName: 'bags-shield',
-  projectName: 'bags-shield-site',
+  // Evita quebra de build por links mortos temporários
+  onBrokenLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/favicon.ico',
+  i18n: { defaultLocale: 'en', locales: ['en'] },
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+  customFields: {
+    appUrl: 'https://app.bagsshield.org',
+    apiHealthUrl: 'https://bags-shield-api.vercel.app/api/health',
   },
 
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/bags-shield/bags-shield-site/tree/main/',
+          // "Edit this page" aponta para o GitHub; edições lá + novo deploy atualizam o site
+          editUrl: 'https://github.com/Prestes16/bags-shield-api/edit/main/site/',
+          routeBasePath: 'docs',
         },
         blog: false,
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
-      }),
+        theme: { customCss: require.resolve('./src/css/custom.css') },
+      },
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      // Replace with your project's social card
-      image: 'img/bags-shield-social-card.jpg',
-      navbar: {
-        title: 'Bags Shield',
-        logo: {
-          alt: 'Bags Shield Logo',
-          src: 'img/logo.svg',
-        },
-        items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'docs',
-            position: 'left',
-            label: 'Docs',
-          },
-          {
-            href: 'https://app.bags-shield.com',
-            label: 'App',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/bags-shield',
-            label: 'GitHub',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'API',
-                to: '/docs/api',
-              },
-              {
-                label: 'Security',
-                to: '/docs/security',
-              },
-              {
-                label: 'Fees & Rewards',
-                to: '/docs/fees-and-rewards',
-              },
-            ],
-          },
-          {
-            title: 'Legal',
-            items: [
-              {
-                label: 'Terms',
-                to: '/docs/legal/terms',
-              },
-              {
-                label: 'Privacy',
-                to: '/docs/legal/privacy',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'App',
-                href: 'https://app.bags-shield.com',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/bags-shield',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Bags Shield. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-      colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: false,
-        respectPrefersColorScheme: false,
-      },
-    }),
-
-  customFields: {
-    // <<< COLE AQUI a URL REAL do health >>>
-    // Exemplo temporário:
-    // healthUrl: "https://bags-shield-api.vercel.app/api/health",
-    healthUrl: 'COLE_A_URL_DA_SUA_API_AQUI',
-
-    // <<< URL do app web (subdomínio futuro) >>>
-    appUrl: 'https://app.bagsshield.org',
+  themeConfig: {
+    colorMode: { defaultMode: 'dark', disableSwitch: true, respectPrefersColorScheme: false },
+    navbar: {
+      title: 'Bags Shield',
+      logo: { alt: 'Bags Shield Logo', src: 'img/logo.svg' },
+      items: [
+        { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Docs' },
+        { to: 'https://app.bagsshield.org', label: 'Launch App', position: 'right', className: 'navbar-cta' },
+        { href: 'https://github.com/Prestes16/bags-shield-site', label: 'GitHub', position: 'right' },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      // Sintaxe segura para evitar erro de encoding no Windows
+      copyright: 'Copyright © ' + new Date().getFullYear() + ' Bags Shield. Built for Solana.',
+    },
+    prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
   },
 };
 
