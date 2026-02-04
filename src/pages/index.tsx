@@ -38,7 +38,7 @@ export default function Home(): JSX.Element {
                 <a className="btn-primary" href="#" rel="noreferrer">
                   Launch Web App
                 </a>
-                <Link className="btn-secondary" to="/docs/api">
+                <Link className="btn-secondary" to="/docs/api/overview">
                   Docs
                 </Link>
               </div>
@@ -62,8 +62,10 @@ export default function Home(): JSX.Element {
               </div>
             </div>
 
-            <div className="bs-mock">
-              <img src={phoneMock} alt="Bags Shield App mock" loading="eager" />
+            <div className="mock-col">
+              <div className="mock-wrap">
+                <img className="mock-img" src={phoneMock} alt="Bags Shield app mock" loading="eager" />
+              </div>
             </div>
           </div>
         </section>

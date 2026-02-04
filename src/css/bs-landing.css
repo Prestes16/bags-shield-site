@@ -1,238 +1,199 @@
-/* src/css/bs-landing.css */
-/* Escopo total: só aplica dentro de .bs-landing */
+/* Bags Shield Landing (scoped) */
 
 .bs-landing{
-  position: relative;
-  overflow-x: hidden;
+  --bg0:#020617;
+  --bg1:#07122a;
+  --cyan:#4dd4ff;
+  --blue:#2fa7ff;
+  --txt:#e5e7eb;
+  --muted:#94a3b8;
+  --line:rgba(255,255,255,.08);
+  color:var(--txt);
 }
 
-/* fundo "navy + glow" sem brigar com o Docusaurus */
-.bs-landing::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(1100px 520px at 85% 10%, rgba(47,167,255,.22), transparent 60%),
-    radial-gradient(900px 480px at 15% 85%, rgba(77,212,255,.12), transparent 55%);
-  pointer-events:none;
-  z-index:0;
-}
+.bs-landing .bs-container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-.bs-landing::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity:.06;
-  pointer-events:none;
-  z-index:0;
-}
-
-/* área do hero: dá "respiro" pra navbar */
+/* HERO */
 .bs-landing .bs-hero{
-  position: relative;
-  z-index:1;
-  padding: calc(var(--ifm-navbar-height) + 3.5rem) 0 5.5rem;
+  position:relative;
+  padding: clamp(3rem, 6vw, 6rem) 0 clamp(2.5rem, 5vw, 4.5rem);
+  overflow:hidden;
 }
 
-.bs-landing .bs-container{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+.bs-landing .bs-hero::before{
+  content:"";
+  position:absolute;inset:-2px;
+  background:
+    radial-gradient(900px 600px at 10% 20%, rgba(47,167,255,.22), transparent 55%),
+    radial-gradient(900px 600px at 90% 10%, rgba(77,212,255,.18), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
+  z-index:0;
+}
+
+.bs-landing .bs-hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity:.25;
+  z-index:0;
+  pointer-events:none;
 }
 
 .bs-landing .bs-hero-grid{
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 3.25rem;
-  align-items: center;
+  position:relative; z-index:1;
+  display:grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items:center;
 }
 
+@media (max-width: 960px){
+  .bs-landing .bs-hero-grid{grid-template-columns:1fr}
+}
+
+/* pill */
 .bs-landing .status-pill{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 999px;
-  font-size: .78rem;
-  color: rgba(148,163,184,.95);
-  background: rgba(2,6,23,.45);
-  backdrop-filter: blur(10px);
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 12px;border:1px solid var(--line);
+  border-radius:999px;
+  font-size:.75rem;color:var(--muted);
+  background:rgba(255,255,255,.03);
   margin-bottom: 1.25rem;
 }
-
 .bs-landing .status-dot{
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #f87171;
-  box-shadow: 0 0 12px rgba(248,113,113,.55);
+  width:7px;height:7px;border-radius:50%;
+  background:#fb7185;
+  box-shadow:0 0 10px rgba(251,113,133,.65);
 }
 
+/* typography */
 .bs-landing .hero-title{
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  font-weight: 850;
-  line-height: 1.06;
-  margin: 0 0 1.25rem;
-  color: #fff;
+  font-weight:900;
+  letter-spacing:-.02em;
+  line-height:1.05;
+  margin:0 0 1rem;
+  font-size: clamp(2.3rem, 4.3vw, 4.2rem);
 }
-
 .bs-landing .txt-gradient{
-  background: linear-gradient(135deg, #ffffff 28%, #4dd4ff 70%, #2fa7ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background:linear-gradient(135deg, #ffffff 20%, var(--cyan) 70%, var(--blue) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
-
 .bs-landing .hero-desc{
-  font-size: 1.08rem;
-  color: rgba(148,163,184,.95);
-  line-height: 1.65;
-  margin-bottom: 1.75rem;
-  max-width: 54ch;
+  margin:0 0 1.6rem;
+  color:var(--muted);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height:1.7;
+  max-width: 58ch;
 }
 
-.bs-landing .hero-cta-group{
-  display:flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 2.25rem;
-}
-
+/* buttons */
+.bs-landing .hero-cta-group{display:flex;gap:12px;flex-wrap:wrap;margin: 0 0 1.8rem}
 .bs-landing .btn-primary,
 .bs-landing .btn-secondary{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 12px 18px;
-  border-radius: 12px;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 20px;border-radius:12px;
   text-decoration:none !important;
-  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
   will-change: transform;
 }
-
 .bs-landing .btn-primary{
-  background: linear-gradient(135deg, #2fa7ff, #4dd4ff);
-  color: #021025 !important;
-  font-weight: 800;
-  box-shadow: 0 18px 60px rgba(47,167,255,.22);
+  background:linear-gradient(135deg, var(--cyan), var(--blue));
+  color:#001018 !important;
+  font-weight:800;
+  box-shadow:0 10px 30px rgba(47,167,255,.18);
 }
-
 .bs-landing .btn-secondary{
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.10);
-  color: #fff !important;
-  font-weight: 650;
+  background:rgba(255,255,255,.02);
+  border:1px solid var(--line);
+  color:#fff !important;
+  font-weight:700;
 }
-
 .bs-landing .btn-primary:hover,
 .bs-landing .btn-secondary:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.05);
+  transform:translateY(-2px);
+  box-shadow:0 14px 36px rgba(77,212,255,.16);
+  border-color:rgba(77,212,255,.35);
 }
+.bs-landing .btn-primary:active,
+.bs-landing .btn-secondary:active{transform:translateY(0) scale(.99)}
 
-.bs-landing .btn-secondary:hover{
-  border-color: rgba(77,212,255,.25);
-  box-shadow: 0 18px 60px rgba(77,212,255,.10);
+/* partners */
+.bs-landing .partners-section{margin-top: 10px}
+.bs-landing .partners-label{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:rgba(255,255,255,.35);
+  margin-bottom:.75rem;
 }
-
-/* MOCK: controla tamanho, deixa "premium", e evita sobreposição */
-.bs-landing .bs-mock{
-  position: relative;
-  justify-self: end;
-  width: min(520px, 100%);
+.bs-landing .partners-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
 }
+.bs-landing .partners-grid a{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.82);
+  text-decoration:none;
+  transition:transform .15s ease, border-color .15s ease, background .15s ease;
+}
+.bs-landing .partners-grid a:hover{
+  transform:translateY(-2px);
+  border-color:rgba(77,212,255,.35);
+  background:rgba(77,212,255,.06);
+}
+.bs-landing .partners-grid img{
+  width:22px;height:22px;display:block;
+  opacity:.95;
+  filter:none;
+}
+.bs-landing .partners-grid span{font-weight:700;font-size:.92rem;color:rgba(255,255,255,.78)}
 
-.bs-landing .bs-mock::before{
+/* mock */
+.bs-landing .mock-col{
+  display:flex;
+  justify-content:center;
+}
+.bs-landing .mock-wrap{
+  width:min(420px, 100%);
+  position:relative;
+  border-radius:28px;
+  padding: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+}
+.bs-landing .mock-wrap::before{
   content:"";
-  position:absolute;
-  inset:-26px;
-  background: radial-gradient(circle at 40% 40%, rgba(77,212,255,.25), transparent 60%);
-  filter: blur(28px);
-  opacity:.65;
-  z-index:-1;
+  position:absolute;inset:-40px;
+  background:
+    radial-gradient(260px 200px at 40% 20%, rgba(77,212,255,.24), transparent 60%),
+    radial-gradient(260px 200px at 70% 70%, rgba(47,167,255,.18), transparent 60%);
+  filter: blur(18px);
+  z-index:0;
 }
-
-.bs-landing .bs-mock img{
+.bs-landing .mock-img{
+  position:relative;z-index:1;
   width:100%;
   height:auto;
   display:block;
-  border-radius: 26px;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 40px 120px rgba(0,0,0,.65);
-  transform: translateY(10px);
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  border-radius:22px;
+  transform: translateZ(0);
 }
 
-.bs-landing .bs-mock img:hover{
-  transform: translateY(6px);
-  box-shadow: 0 55px 160px rgba(0,0,0,.72);
+@keyframes bsFloat{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+.bs-landing .mock-wrap{animation: bsFloat 6.5s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){
+  .bs-landing .mock-wrap{animation:none}
 }
 
-/* Partners: ícones grandes, alinhados, com hover */
-.bs-landing .partners-section{
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-
-.bs-landing .partners-label{
-  font-size: .72rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(148,163,184,.75);
-  margin: 0 0 14px;
-}
-
-.bs-landing .partners-grid{
-  display:flex;
-  gap: 38px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.bs-landing .partners-grid a{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  color: rgba(148,163,184,.95);
-  text-decoration:none !important;
-  font-weight: 650;
-  transition: transform 160ms ease, color 160ms ease;
-}
-
-.bs-landing .partners-grid img{
-  height: 28px;
-  width: auto;
-  display:block;
-  opacity: .88;
-  transition: transform 160ms ease, opacity 160ms ease;
-}
-
-.bs-landing .partners-grid a:hover{
-  transform: translateY(-1px);
-  color: rgba(255,255,255,.95);
-}
-
-.bs-landing .partners-grid a:hover img{
-  opacity: 1;
-  transform: translateY(-1px);
-}
-
-/* Responsivo */
-@media (max-width: 996px){
-  .bs-landing .bs-hero{
-    padding: calc(var(--ifm-navbar-height) + 2.5rem) 0 4rem;
-  }
-  .bs-landing .bs-hero-grid{
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-  .bs-landing .bs-mock{
-    justify-self: start;
-    width: min(560px, 100%);
-  }
-}
+/* micro interactions */
+.bs-landing a, .bs-landing button { -webkit-tap-highlight-color: transparent; }
