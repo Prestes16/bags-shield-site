@@ -190,3 +190,51 @@ html, body, [data-theme='light'], [data-theme='dark'] {
   opacity: 0.9 !important;
   filter: none !important;
 }
+
+/* === V16 HOME LAYOUT FIX (não afeta docs) === */
+.bs-home .row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* evita "corte" visual no home quando tem background/efeitos */
+.bs-home main{
+  overflow-x: visible !important;
+}
+
+/* HERO: dá respiro e evita sobreposição */
+.bs-home .heroBanner,
+.bs-home .hero,
+.bs-home .bs-hero{
+  padding-bottom: 6rem !important;
+}
+
+/* PARTNERS: força layout em linha e logos consistentes */
+.bs-home .partners-section{
+  margin-top: 2.5rem;
+}
+
+.bs-home .partners-grid{
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 0 !important;
+  margin: 18px auto 0;
+  list-style: none !important;
+}
+
+.bs-home .partners-grid img{
+  height: 28px;
+  width: auto;
+  display: block;
+  opacity: 0.92;
+  filter: none !important;
+}
+
+/* se partners estiver como <li> */
+.bs-home .partners-grid li{
+  margin: 0 !important;
+  padding: 0 !important;
+}

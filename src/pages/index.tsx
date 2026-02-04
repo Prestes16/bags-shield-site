@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -46,7 +46,7 @@ export default function Home() {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <Layout title="Home" description="Solana Intelligence Layer">
+    <Layout title="Home" description="Solana Intelligence Layer" wrapperClassName="bs-home">
       <div className="cyber-landing">
         
         {/* Background */}
