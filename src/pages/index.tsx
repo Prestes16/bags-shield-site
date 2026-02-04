@@ -1,154 +1,85 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-// --- Ícones (SVGs Limpos) ---
-const Icons = {
-  Shield: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-  Chart: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>,
-  Zap: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
-  Check: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
-  
-  // PARCEIROS (Logos Grandes)
-  Solana: () => <svg viewBox="0 0 397 311" fill="none" height="32"><path d="M64.6 238.3L0 302.9H332.1L396.7 238.3H64.6ZM0 72.7L64.6 8H396.7L332.1 72.7H0ZM64.6 155.4L0 220H332.1L396.7 155.4H64.6Z" fill="currentColor"/></svg>,
-  Jupiter: () => <svg viewBox="0 0 24 24" fill="none" height="32"><path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2Z" fill="currentColor"/></svg>,
-  Helius: () => <svg viewBox="0 0 24 24" fill="none" height="32"><path d="M16.5 2H7.5V22H16.5V2Z" fill="currentColor"/><path d="M12 10L14 12L12 14L10 12L12 10Z" fill="#020617"/></svg>
-};
+import '../css/bs-landing.css';
 
-// --- Badge API (Resiliente) ---
-const ApiStatusBadge = () => {
-  const { siteConfig } = useDocusaurusContext();
-  const [status, setStatus] = useState('checking');
-  const apiUrl = siteConfig.customFields?.apiHealthUrl || 'https://bags-shield-api.vercel.app/api/health';
+export default function Home(): JSX.Element {
+  const phoneMock = useBaseUrl('img/phone-mock.png');
 
-  useEffect(() => {
-    const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), 2000);
-    fetch(apiUrl, { signal: controller.signal })
-      .then(r => setStatus(r.ok ? 'online' : 'unknown'))
-      .catch(() => setStatus('unknown')) // Falha silenciosa para nao quebrar UI
-      .finally(() => clearTimeout(id));
-    return () => clearTimeout(id);
-  }, [apiUrl]);
+  const solana = useBaseUrl('img/partners/solana.svg');
+  const jupiter = useBaseUrl('img/partners/jupiter.svg');
+  const helius = useBaseUrl('img/partners/helius.svg');
 
   return (
-    <div className={`cyber-badge ${status}`}>
-      <span className="dot"></span>
-      {status === 'online' ? 'API Online' : status === 'checking' ? 'Checking...' : 'API Offline'}
-    </div>
-  );
-};
+    <Layout
+      title="Bags Shield"
+      description="Real-time risk analysis, secure swaps, and advanced analytics for the Solana ecosystem."
+    >
+      <main className="bs-landing">
+        <section className="bs-hero">
+          <div className="bs-container hero-grid">
+            <div>
+              <div className="status-pill">
+                <span className="status-dot" />
+                API OFFLINE
+              </div>
 
-export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
-  const appUrl = siteConfig.customFields?.appUrl || '#';
-  const [imgError, setImgError] = useState(false);
-
-  return (
-    <Layout title="Home" description="Solana Intelligence Layer" wrapperClassName="bs-home">
-      <div className="cyber-landing">
-        
-        {/* Background */}
-        <div className="bg-grid"></div>
-        <div className="glow-spot top-right"></div>
-        <div className="glow-spot bottom-left"></div>
-
-        <main className="cyber-container">
-          
-          {/* HERO SECTION */}
-          <section className="hero-section">
-            <div className="hero-text">
-              <ApiStatusBadge />
               <h1 className="hero-title">
-                Bags Shield: The <br/>
-                <span className="text-highlight">Ultimate Solana</span> <br/>
-                Intelligence Layer.
+                Bags Shield: The <span className="txt-gradient">Ultimate Solana</span> Intelligence Layer.
               </h1>
+
               <p className="hero-desc">
                 Real-time risk analysis, secure swaps, and advanced analytics for the Solana ecosystem.
               </p>
-              
-              <div className="cta-group">
-                <Link to={appUrl} className="btn btn-primary">Launch Web App</Link>
-                <Link to="/docs/intro" className="btn btn-secondary">Docs</Link>
+
+              <div className="hero-cta">
+                <a className="btn-primary" href="#" rel="noreferrer">
+                  Launch Web App
+                </a>
+                <Link className="btn-secondary" to="/docs/api">
+                  Docs
+                </Link>
+              </div>
+
+              <div className="partners">
+                <span className="label">Ecosystem Partners</span>
+                <img src={solana} alt="Solana" loading="lazy" />
+                <img src={jupiter} alt="Jupiter" loading="lazy" />
+                <img src={helius} alt="Helius" loading="lazy" />
               </div>
             </div>
 
-            {/* MOCKUP 3D */}
-            <div className="hero-visual">
-              <div className="phone-wrapper">
-                <div className={`phone-frame ${imgError ? 'no-img' : ''}`}>
-                  {!imgError ? (
-                    <img 
-                      src="img/phone-mock.png" 
-                      alt="App Interface" 
-                      className="phone-img"
-                      onError={() => setImgError(true)}
-                    />
-                  ) : (
-                    /* Fallback UI Clean */
-                    <div className="phone-ui">
-                      <div className="ui-top"><Icons.Shield /> <span>Bags Shield</span></div>
-                      <div className="ui-center">
-                        <div className="radar"></div>
-                        <h3>Scanning...</h3>
-                      </div>
-                    </div>
-                  )}
-                  <div className="glass-overlay"></div>
-                </div>
-
-                {/* Floating Cards (Fixos e Alinhados) */}
-                <div className="float-card card-top">
-                  <div className="icon-box green"><Icons.Check /></div>
-                  <div><div className="label">Risk Level</div><div className="value">Safe (98%)</div></div>
-                </div>
-                <div className="float-card card-bottom">
-                  <div className="icon-box cyan"><Icons.Zap /></div>
-                  <div><div className="label">Swap Route</div><div className="value">Jupiter Aggregator</div></div>
-                </div>
-              </div>
+            <div className="hero-art">
+              <img className="phone-mock" src={phoneMock} alt="Bags Shield App mock" loading="eager" />
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* FEATURES GRID */}
-          <section className="features-section">
+        <section className="bs-section">
+          <div className="bs-container">
             <div className="grid-3">
-              <div className="glass-box">
-                <div className="box-icon"><Icons.Shield /></div>
+              <div className="glass">
                 <h3>Scan Risk</h3>
                 <p>Instant contract analysis detecting rugpulls, honeypots, and mutable metadata.</p>
               </div>
-              <div className="glass-box">
-                <div className="box-icon"><Icons.Chart /></div>
+              <div className="glass">
                 <h3>Secure Analytics</h3>
-                <p>Deep dive into holder distribution and liquidity lock status in real-time.</p>
+                <p>Deep dive into holder distribution and liquidity signals with clear risk explanations.</p>
               </div>
-              <div className="glass-box">
-                <div className="box-icon"><Icons.Zap /></div>
+              <div className="glass">
                 <h3>Swift Swaps</h3>
-                <p>Integrated Jupiter routing for the best prices with safety checks.</p>
+                <p>Integrated routing (Jupiter) for the best prices with safety checks before execution.</p>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* PARTNERS (Corrigido: Logos Grandes) */}
-          <section className="partners-section">
-            <h4 className="partners-label">Ecosystem Partners</h4>
-            <div className="partners-grid">
-              <div className="partner-logo solana"><Icons.Solana /> <span>Solana</span></div>
-              <div className="partner-logo jupiter"><Icons.Jupiter /> <span>Jupiter</span></div>
-              <div className="partner-logo helius"><Icons.Helius /> <span>Helius</span></div>
-            </div>
-          </section>
-
-          <footer className="simple-footer">
-            <p>© {new Date().getFullYear()} Bags Shield. Built for Solana.</p>
-          </footer>
-
-        </main>
-      </div>
+        <footer className="bs-footer">
+          © 2026 Bags Shield. Built for Solana.
+        </footer>
+      </main>
     </Layout>
   );
 }
