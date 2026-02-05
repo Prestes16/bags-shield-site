@@ -36,6 +36,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+        editUrl: 'https://github.com/Prestes16/bags-shield-site/edit/main/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/bags-shield/bags-shield-site/tree/main/',
         },
@@ -85,15 +86,15 @@ const config = {
             items: [
               {
                 label: 'API',
-                to: '/docs/api',
+                to: '/docs/api/overview',
               },
               {
                 label: 'Security',
-                to: '/docs/security',
+                to: '/docs/security/overview',
               },
               {
                 label: 'Fees & Rewards',
-                to: '/docs/fees-and-rewards',
+                to: '/docs/fees-and-rewards/overview',
               },
             ],
           },
@@ -124,7 +125,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Bags Shield. Built with Docusaurus.`,
+        copyright: `Copyright Ã‚Â© ${new Date().getFullYear()} Bags Shield. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
@@ -139,11 +140,11 @@ const config = {
 
   customFields: {
     // <<< COLE AQUI a URL REAL do health >>>
-    // Exemplo temporário:
+    // Exemplo temporÃƒÂ¡rio:
     // healthUrl: "https://bags-shield-api.vercel.app/api/health",
     healthUrl: 'COLE_A_URL_DA_SUA_API_AQUI',
 
-    // <<< URL do app web (subdomínio futuro) >>>
+    // <<< URL do app web (subdomÃƒÂ­nio futuro) >>>
     appUrl: 'https://app.bagsshield.org',
   },
 };
