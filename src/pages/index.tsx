@@ -14,10 +14,12 @@ const FeatIcons = {
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
-  const phoneMock = useBaseUrl('img/phone-mock.png');
-  const solanaIcon = useBaseUrl('img/partners/solana.svg');
-  const jupiterIcon = useBaseUrl('img/partners/jupiter.svg');
-  const heliusIcon = useBaseUrl('img/partners/helius.svg');
+  const phoneMock = useBaseUrl('/img/phone-mock.png');
+
+  // partners (mantém o que já funciona no repo)
+  const solanaIcon = useBaseUrl('/img/partners/solana.svg');
+  const jupiterIcon = useBaseUrl('/img/partners/jupiter.svg');
+  const heliusIcon = useBaseUrl('/img/partners/helius.svg');
 
   return (
     <Layout title="Home" description="Solana Intelligence Layer">
@@ -73,51 +75,68 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DEEP DIVE (Fixed Characters) */}
+        {/* DEEP DIVE SECTION (4 CARDS GRID) */}
         <section className="bs-deep-dive">
           <div className="bs-container">
             <div className="section-head">
               <h2>Infrastructure &amp; Philosophy</h2>
               <p>Why we are building the new standard for DeFi safety.</p>
             </div>
+
             <div className="deep-grid">
-              {/* Card 1 */}
+
+              {/* Card 1: MODEL */}
               <div className="deep-card">
                 <div className="deep-head"><span className="deep-tag">MODEL</span><h3>Jupiter Executes. Bags Shield Protects.</h3></div>
                 <div className="deep-body">
-                  <p>While Jupiter acts as the powerhouse engine finding the best routes, Bags Shield operates as the <strong>Intelligence Layer</strong>. We run deep pre-swap scans, calculate real-time ShieldScores&trade;, and apply strict guardrails to filter out traps.</p>
+                  <p>While Jupiter acts as the powerhouse engine finding the best routes, Bags Shield operates as the <strong>Intelligence Layer</strong>. We run deep pre-swap scans and apply strict guardrails.</p>
                   <ul className="deep-list">
-                    <li><strong>&#128737; Sustainable Fees:</strong> Small, transparent fees keeping infrastructure robust.</li>
-                    <li><strong>&#128184; User Cashback:</strong> Users earn rebates just for using the secure route.</li>
-                    <li><strong>&#129309; Partner Rewards:</strong> Integrators earn revenue share for directing traffic.</li>
+                    <li><strong>&#128737; Sustainable Fees:</strong> Small, transparent fees.</li>
+                    <li><strong>&#128184; User Cashback:</strong> Earn rebates for using secure routes.</li>
+                    <li><strong>&#129309; Partner Rewards:</strong> RevShare for integrators.</li>
                   </ul>
                 </div>
               </div>
-              {/* Card 2 */}
+
+              {/* Card 2: TRUST */}
               <div className="deep-card">
                 <div className="deep-head"><span className="deep-tag">TRUST</span><h3>The Bags Shield Difference</h3></div>
                 <div className="deep-body">
                   <p>Most scanners just dump data. We transform risk into binary decisions. <strong>Scan &rarr; Explain &rarr; Secure Action</strong>. No guessing games.</p>
                   <ul className="deep-list">
-                    <li><strong>Pre-Action Trust Layer:</strong> Risk analysis before you sign.</li>
-                    <li><strong>ShieldScore&trade;:</strong> Frozen A-F grading system for immediate clarity.</li>
-                    <li><strong>True Explainability:</strong> We tell you <em>why</em> (Mint Auth, Mutability, Liquidity).</li>
+                    <li><strong>Pre-Action Trust:</strong> Risk analysis before signing.</li>
+                    <li><strong>ShieldScore&trade;:</strong> Frozen A-F grading system.</li>
+                    <li><strong>Explainability:</strong> Clear "Why" for every alert.</li>
                   </ul>
                 </div>
               </div>
-              {/* Card 3 */}
+
+              {/* Card 3: ENGINE */}
               <div className="deep-card">
                 <div className="deep-head"><span className="deep-tag">ENGINE</span><h3>Built for Scale &amp; Speed</h3></div>
                 <div className="deep-body">
                   <p>A technology stack designed for aggressive iteration, absolute type safety, and mobile-first security.</p>
                   <ul className="deep-list">
-                    <li><strong>Serverless Velocity:</strong> Vercel + TS for rapid, safe deployments.</li>
-                    <li><strong>Strict Contracts:</strong> Zod/AJV schemas prevent runtime crashes.</li>
-                    <li><strong>Institutional Observability:</strong> Traceable Request IDs for auditability.</li>
-                    <li><strong>Solana Mobile Native:</strong> Ready for Seeker/Saga Seed Vault integration.</li>
+                    <li><strong>Serverless:</strong> Vercel + TS for rapid deployments.</li>
+                    <li><strong>Strict Contracts:</strong> Zod schemas prevent crashes.</li>
+                    <li><strong>Traceability:</strong> Request IDs for full audit logs.</li>
                   </ul>
                 </div>
               </div>
+
+              {/* Card 4: VERIFIED LAUNCHPAD (NOVO) */}
+              <div className="deep-card">
+                <div className="deep-head"><span className="deep-tag">FACTORY</span><h3>Verified Launchpad</h3></div>
+                <div className="deep-body">
+                  <p>Stop launching vulnerable contracts. Our factory embeds security directly into the bytecode. You have full sovereignty to opt-in for <strong>Liquidity Locking</strong> and <strong>Key Revocation</strong> during deployment.</p>
+                  <ul className="deep-list">
+                    <li><strong>&#128142; Maximize Score:</strong> Locking LP guarantees an instant 'A' Rating.</li>
+                    <li><strong>&#9889; Atomic Efficiency:</strong> Deploy &amp; Lock in one transaction.</li>
+                    <li><strong>&#128274; Anti-Rug Assurance:</strong> Mathematical proof of safety.</li>
+                  </ul>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
