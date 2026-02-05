@@ -37,4 +37,6 @@ const sidebars = {
   ],
 };
 
+sidebars.tutorialSidebar = sidebars.docs;
+
 module.exports = sidebars;
