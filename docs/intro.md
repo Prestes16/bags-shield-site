@@ -1,18 +1,21 @@
-﻿---
+---
+title: Getting Started
 sidebar_position: 1
-slug: /intro
-title: Introduction
 ---
 
-# Bags Shield API
+# Bags Shield Docs
 
-Welcome to the **Bags Shield** documentation. This protocol provides real-time risk analysis for Solana tokens.
+Bags Shield is a Solana risk and execution intelligence layer: **Scan -> Explain -> Guarded action**.
 
-## Getting Started
+## What you get
+- Token risk scans (rug patterns, admin power, liquidity signals)
+- Readable decisions (ShieldScore + human-readable reasoning)
+- Execution guardrails before you sign
 
-Connect to our Intelligence Layer to:
-* **Scan Tokens:** Detect honeypots and rugpulls.
-* **Route safely:** Use our Jupiter integration.
-* **Audit:** Verify metadata immutability.
+## Quick links
+- API Overview: /docs/api/overview/
+- Authentication: /docs/api/authentication/
+- Security Overview: /docs/security/overview/
 
-[Launch App](https://app.bagsshield.org)
+## Status
+- Public docs are stable; endpoints can evolve under versioned paths.
