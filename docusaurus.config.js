@@ -1,5 +1,5 @@
 // @ts-check
-// CORREÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢O: Nova forma de importar temas no Docusaurus v3
+// CORRECAO: Nova forma de importar temas no Docusaurus v3
 const {themes} = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -47,7 +47,6 @@ const config = {
           { href: 'https://github.com/Prestes16/bags-shield-api', label: 'GitHub', position: 'right' },
         ],
       },
-      footer: { style: 'dark', copyright: `Copyright ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€š© ${new Date().getFullYear()} Bags Shield. Built for Solana.` },
       prism: { theme: lightCodeTheme, darkTheme: darkCodeTheme },
     }),
 };
